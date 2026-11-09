@@ -2,8 +2,10 @@
 
 @theme {
   /* Colors */
-  --color-primary-pink: #e33e78;
-  --color-secondary-gray: #212b36;
+  --color-primary: #004494;
+  --color-primary-dark: #003370;
+  --color-primary-accent: #0084d6;
+  --color-primary-pink: #004494;
 
   /* Font Family */
   --font-dm-sans: var(--font-dm-sans);

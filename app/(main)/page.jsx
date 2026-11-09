@@ -1,7 +1,10 @@
 import React from "react";
+import HeroSlider from "@/components/HeroSlider";
 
-const page = () => {
-  return <div className="h-screen justify-center items-center">Home page</div>;
-};
-
-export default page;
+export default function HomePage() {
+  return (
+    <>
+      <HeroSlider />
+    </>
+  );
+}
