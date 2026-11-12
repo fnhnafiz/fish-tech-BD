@@ -2,6 +2,7 @@ import "./globals.css";
 import ReduxProvider from "@/provider/ReduxProvider";
 import { DM_Sans } from "next/font/google";
 import ToastProvider from "@/provider/ToastProvider";
+import LenisProvider from "@/provider/LenisProvider";
 
 // Fonts
 const dmSans = DM_Sans({
@@ -25,8 +26,10 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${dmSans.variable} antialiased`} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <ReduxProvider>
-          <ToastProvider />
-          {children}
+          <LenisProvider>
+            <ToastProvider />
+            {children}
+          </LenisProvider>
         </ReduxProvider>
       </body>
     </html>

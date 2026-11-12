@@ -18,3 +18,12 @@ body {
 .container {
   @apply max-w-415 mx-auto px-4 md:px-5 xl:px-12 2xl:px-5;
 }
+
+dialog:modal {
+  overscroll-behavior: contain;
+}
+
+dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
