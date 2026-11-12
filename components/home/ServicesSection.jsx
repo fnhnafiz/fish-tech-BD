@@ -89,7 +89,7 @@ export default function ServicesSection({
   return (
     <section
       aria-labelledby="services-section-heading"
-      className="relative border-y border-slate-200/70 bg-[#F8FAFC] py-14 sm:py-16 lg:py-20 overflow-x-clip"
+      className="relative  bg-[#F8FAFC] py-14 sm:py-16 lg:py-20 overflow-x-clip"
     >
       {/* Subtle ambient background accents */}
       <div
