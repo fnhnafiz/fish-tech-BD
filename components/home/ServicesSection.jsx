@@ -85,11 +85,13 @@ export default function ServicesSection({
   headingEnd = "Solutions",
   subtitle = "Supporting farmers, hatcheries, and agribusiness partners across Bangladesh from pond-side advisory to precision laboratory diagnostics.",
   services = SERVICES_DATA,
+  ctaLabel = "More Services",
+  ctaHref = "/services",
 }) {
   return (
     <section
       aria-labelledby="services-section-heading"
-      className="relative  bg-[#F8FAFC] py-14 sm:py-16 lg:py-20 overflow-x-clip"
+      className="relative  bg-[#F8FAFC] py-8 sm:py-12 lg:py-12 overflow-x-clip"
     >
       {/* Subtle ambient background accents */}
       <div
@@ -213,6 +215,22 @@ export default function ServicesSection({
               </Link>
             );
           })}
+        </div>
+
+        {/* ======================================================== */}
+        {/* BOTTOM SECTION CTA BUTTON                                */}
+        {/* ======================================================== */}
+        <div className="mt-12 sm:mt-14 flex justify-center">
+          <Link
+            href={ctaHref}
+            className="group inline-flex items-center gap-2.5 rounded-xl bg-[#004494] px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-md shadow-[#004494]/20 transition-all duration-200 hover:bg-[#003370] hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0084d6] active:scale-[0.98]"
+          >
+            <span>{ctaLabel}</span>
+            <ArrowRight
+              className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"
+              aria-hidden="true"
+            />
+          </Link>
         </div>
       </div>
     </section>
