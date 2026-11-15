@@ -38,7 +38,7 @@ export default function OverviewPage() {
       {/* 5. Core Values Section (Spinning Geometric Icons on Scroll & Hover) */}
       <CoreValuesSection />
 
-      {/* 6. Our Strategy Section (Right-Aligned Header + 4-Pillar Process Flow) */}
+      {/* 6. Our Strategy Section (2-Column Editorial Split + Strategy Publication Showcase) */}
       <OurStrategySection />
 
       {/* Additional sections will be added here step-by-step as requested */}
