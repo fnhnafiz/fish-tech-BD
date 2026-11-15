@@ -11,24 +11,6 @@ import {
   FiChevronRight,
   FiSearch,
   FiArrowRight,
-  FiHome,
-  FiInfo,
-  FiAward,
-  FiUsers,
-  FiBriefcase,
-  FiFileText,
-  FiSettings,
-  FiPackage,
-  FiBox,
-  FiTarget,
-  FiActivity,
-  FiCpu,
-  FiBookOpen,
-  FiUserCheck,
-  FiCalendar,
-  FiEdit3,
-  FiVideo,
-  FiImage,
   FiPhone,
   FiMapPin,
   FiMail,
@@ -55,7 +37,6 @@ const NAV_ITEMS = [
   {
     name: "Home",
     href: "/",
-    icon: FiHome,
   },
   {
     name: "About",
@@ -64,27 +45,56 @@ const NAV_ITEMS = [
       {
         title: "Overview",
         href: "/about/overview",
-        icon: FiInfo,
       },
       {
         title: "Board of Directors",
         href: "/about/board-of-directors",
-        icon: FiAward,
       },
       {
         title: "Team",
         href: "/about/team",
-        icon: FiUsers,
+      },
+      {
+        title: "Sister Concerns",
+        href: "/about/sister-concerns",
+        subItems: [
+          {
+            title: "Fishtech Hatchery",
+            href: "/about/sister-concerns/fishtech-hatchery",
+          },
+          {
+            title: "Fishtech Golda Hatchery",
+            href: "/about/sister-concerns/fishtech-golda-hatchery",
+          },
+          {
+            title: "Fishtech SPF Monodon",
+            href: "/about/sister-concerns/fishtech-spf-monodon",
+          },
+          {
+            title: "Growtech Aquaculture",
+            href: "/about/sister-concerns/growtech-aquaculture",
+          },
+          {
+            title: "Growtech Animal Health",
+            href: "/about/sister-concerns/growtech-animal-health",
+          },
+          {
+            title: "Growtech Agro",
+            href: "/about/sister-concerns/growtech-agro",
+          },
+          {
+            title: "Carol Enterprise",
+            href: "/about/sister-concerns/carol-enterprise",
+          },
+        ],
       },
       {
         title: "Clients",
         href: "/about/clients",
-        icon: FiBriefcase,
       },
       {
         title: "MoU (Memorandum of Understanding)",
         href: "/about/mou",
-        icon: FiFileText,
       },
     ],
   },
@@ -95,46 +105,38 @@ const NAV_ITEMS = [
       {
         title: "Aqua Medicine",
         href: "/services/aqua-medicine",
-        icon: FiPackage,
         subItems: [
           {
             title: "Products",
             href: "/services/aqua-medicine/products",
-            icon: FiBox,
           },
         ],
       },
       {
         title: "Technical Service",
         href: "/services/technical-service",
-        icon: FiSettings,
       },
       {
         title: "CoE (Aquaculture Centre of Excellence)",
         href: "/services/coe",
-        icon: FiTarget,
         subItems: [
           {
             title: "Mymensingh",
             href: "/services/coe/mymensingh",
-            icon: FiMapPin,
           },
           {
             title: "Patuakhali",
             href: "/services/coe/patuakhali",
-            icon: FiMapPin,
           },
           {
             title: "Cox’s Bazar",
             href: "/services/coe/coxs-bazar",
-            icon: FiMapPin,
           },
         ],
       },
       {
         title: "Fishtech Laboratory",
         href: "/services/laboratory",
-        icon: FiActivity,
       },
     ],
   },
@@ -145,34 +147,28 @@ const NAV_ITEMS = [
       {
         title: "Team",
         href: "/rd/team",
-        icon: FiUsers,
       },
       {
         title: "Training & Seminars",
         href: "/rd/training-seminars",
-        icon: FiCalendar,
       },
       {
         title: "Projects",
         href: "/rd/projects",
-        icon: FiCpu,
       },
       {
         title: "Articles",
         href: "/rd/articles",
-        icon: FiBookOpen,
       },
       {
         title: "Research Publications",
         href: "/rd/publications",
-        icon: FiFileText,
       },
     ],
   },
   {
     name: "Career",
     href: "/career",
-    icon: FiUserCheck,
   },
   {
     name: "Insights",
@@ -181,19 +177,16 @@ const NAV_ITEMS = [
       {
         title: "Blogs",
         href: "/insights/blogs",
-        icon: FiEdit3,
       },
       {
         title: "Videos",
         href: "/insights/videos",
-        icon: FiVideo,
       },
     ],
   },
   {
     name: "Gallery",
     href: "/gallery",
-    icon: FiImage,
   },
 ];
 
@@ -218,7 +211,7 @@ export default function Navbar() {
   const navRef = useRef(null);
   const timeoutRef = useRef(null);
 
-  // Monitor scroll position to toggle transparent vs solid ThemeForest header
+  // Monitor scroll position to toggle transparent vs solid header
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 25);
@@ -405,7 +398,7 @@ export default function Navbar() {
               </div>
             </Link>
 
-            {/* Desktop Navigation Links (Dropdowns with Nested Submenus) */}
+            {/* Desktop Navigation Links */}
             <nav aria-label="Main Navigation" className="hidden lg:block">
               <ul className="flex items-center gap-0.5 xl:gap-1.5 2xl:gap-2">
                 {NAV_ITEMS.map((item) => {
@@ -479,7 +472,7 @@ export default function Navbar() {
                             )}
                           </button>
 
-                          {/* Compact ThemeForest-Style Dropdown Panel */}
+                          {/* Executive Dropdown Panel (White Background with Primary Hover) */}
                           <div
                             id={dropdownId}
                             className={`absolute top-full left-0 pt-2.5 z-50 transition-all duration-150 ease-out motion-reduce:transition-none ${
@@ -488,9 +481,8 @@ export default function Navbar() {
                                 : "opacity-0 translate-y-2 invisible pointer-events-none"
                             }`}
                           >
-                            <ul className="min-w-[260px] w-max max-w-[330px] bg-white rounded-xl shadow-[0_18px_45px_-12px_rgba(0,28,68,0.22)] border border-slate-100 border-t-2 border-t-[#004494] py-2 text-slate-800">
+                            <ul className="min-w-[270px] w-max max-w-[340px] bg-white rounded-r-xl border border-slate-100 border-l-2 border-l-[#004494]  text-slate-800">
                               {item.dropdown.map((sub) => {
-                                const SubIcon = sub.icon;
                                 const hasSubItems = Boolean(sub.subItems?.length);
                                 const isSubOpen = activeSubDropdown === sub.title;
                                 const isSubActive = isRouteActive(sub.href);
@@ -499,7 +491,7 @@ export default function Navbar() {
                                 return (
                                   <li
                                     key={sub.title}
-                                    className="relative px-1.5"
+                                    className="relative "
                                     onMouseEnter={() => {
                                       if (hasSubItems) {
                                         setActiveSubDropdown(sub.title);
@@ -519,33 +511,29 @@ export default function Navbar() {
                                           }
                                           aria-expanded={isSubOpen}
                                           aria-controls={subMenuId}
-                                          className={`group/item w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-left text-[13px] font-semibold transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004494] ${
+                                          className={`group/item w-full flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-r-lg text-left text-[13px] font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004494] ${
                                             isSubOpen || isSubActive
-                                              ? "bg-blue-50/90 text-[#004494]"
-                                              : "text-slate-700 hover:bg-blue-50/80 hover:text-[#004494]"
+                                              ? "bg-[#004494] text-white font-semibold pl-4 shadow-sm"
+                                              : "text-slate-700 hover:bg-[#004494] hover:text-white hover:pl-4"
                                           }`}
                                         >
                                           <span className="flex items-center gap-2.5">
                                             <span
-                                              className={`p-1.5 rounded-md transition-colors shrink-0 ${
+                                              aria-hidden="true"
+                                              className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
                                                 isSubOpen || isSubActive
-                                                  ? "bg-[#004494] text-white"
-                                                  : "bg-sky-50 text-[#004494] group-hover/item:bg-[#004494] group-hover/item:text-white"
+                                                  ? "bg-sky-300 scale-100 opacity-100"
+                                                  : "bg-sky-300 scale-0 opacity-0 group-hover/item:scale-100 group-hover/item:opacity-100"
                                               }`}
-                                            >
-                                              <SubIcon
-                                                className="w-3.5 h-3.5"
-                                                aria-hidden="true"
-                                              />
-                                            </span>
+                                            />
                                             <span>{sub.title}</span>
                                           </span>
                                           <FiChevronRight
                                             aria-hidden="true"
-                                            className={`w-4 h-4 shrink-0 transition-transform duration-150 ${
-                                              isSubOpen
-                                                ? "translate-x-0.5 text-[#004494]"
-                                                : "text-slate-400 group-hover/item:text-[#004494]"
+                                            className={`w-4 h-4 shrink-0 transition-transform duration-200 ${
+                                              isSubOpen || isSubActive
+                                                ? "translate-x-1 text-white"
+                                                : "text-slate-400 group-hover/item:text-white group-hover/item:translate-x-0.5"
                                             }`}
                                           />
                                         </button>
@@ -553,41 +541,42 @@ export default function Navbar() {
                                         {/* Level-2 Nested Flyout Submenu */}
                                         <div
                                           id={subMenuId}
-                                          className={`absolute left-full top-0 pl-2 z-50 transition-all duration-150 ease-out motion-reduce:transition-none ${
+                                          className={`absolute left-full top-0 z-50 transition-all duration-150 ease-out motion-reduce:transition-none ${
                                             isSubOpen
                                               ? "opacity-100 translate-x-0 visible pointer-events-auto"
                                               : "opacity-0 -translate-x-1 invisible pointer-events-none"
                                           }`}
                                         >
-                                          <ul className="min-w-[205px] w-max bg-white rounded-xl shadow-[0_18px_45px_-12px_rgba(0,28,68,0.22)] border border-slate-100 border-l-2 border-l-[#0084d6] py-2">
+                                          <ul className="min-w-[240px] w-max bg-white rounded-r-xl  border border-slate-100 border-r-2 border-r-[#0084d6]  text-slate-800">
                                             {sub.subItems.map((nested) => {
-                                              const NestedIcon = nested.icon;
                                               const isNestedActive =
                                                 pathname === nested.href;
 
                                               return (
-                                                <li key={nested.title} className="px-1.5">
+                                                <li key={nested.title} className="">
                                                   <Link
                                                     href={nested.href}
                                                     onClick={closeAllDesktopMenus}
                                                     aria-current={
                                                       isNestedActive ? "page" : undefined
                                                     }
-                                                    className={`group/nested flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004494] ${
+                                                    className={`group/nested flex items-center justify-between gap-3 px-3.5 py-2 rounded-r-lg text-[13px] font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004494] ${
                                                       isNestedActive
-                                                        ? "bg-blue-50 text-[#004494] font-semibold border-l-2 border-[#004494]"
-                                                        : "text-slate-700 hover:bg-blue-50/80 hover:text-[#004494]"
+                                                        ? "bg-[#004494] text-white font-semibold pl-4 shadow-sm"
+                                                        : "text-slate-700 hover:bg-[#004494] hover:text-white hover:pl-4"
                                                     }`}
                                                   >
-                                                    <NestedIcon
-                                                      aria-hidden="true"
-                                                      className={`w-3.5 h-3.5 shrink-0 ${
-                                                        isNestedActive
-                                                          ? "text-[#004494]"
-                                                          : "text-[#0084d6] group-hover/nested:text-[#004494]"
-                                                      }`}
-                                                    />
-                                                    <span>{nested.title}</span>
+                                                    <span className="flex items-center gap-2.5">
+                                                      <span
+                                                        aria-hidden="true"
+                                                        className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
+                                                          isNestedActive
+                                                            ? "bg-sky-300 scale-100 opacity-100"
+                                                            : "bg-sky-300 scale-0 opacity-0 group-hover/nested:scale-100 group-hover/nested:opacity-100"
+                                                        }`}
+                                                      />
+                                                      <span>{nested.title}</span>
+                                                    </span>
                                                   </Link>
                                                 </li>
                                               );
@@ -602,25 +591,23 @@ export default function Navbar() {
                                         aria-current={
                                           pathname === sub.href ? "page" : undefined
                                         }
-                                        className={`group/item flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[13px] font-semibold transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004494] ${
+                                        className={`group/item flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-r-lg text-[13px] font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004494] ${
                                           pathname === sub.href
-                                            ? "bg-blue-50 text-[#004494] border-l-2 border-[#004494]"
-                                            : "text-slate-700 hover:bg-blue-50/80 hover:text-[#004494]"
+                                            ? "bg-[#004494] text-white font-semibold pl-4 shadow-sm"
+                                            : "text-slate-700 hover:bg-[#004494] hover:text-white hover:pl-4"
                                         }`}
                                       >
-                                        <span
-                                          className={`p-1.5 rounded-md transition-colors shrink-0 ${
-                                            pathname === sub.href
-                                              ? "bg-[#004494] text-white"
-                                              : "bg-sky-50 text-[#004494] group-hover/item:bg-[#004494] group-hover/item:text-white"
-                                          }`}
-                                        >
-                                          <SubIcon
-                                            className="w-3.5 h-3.5"
+                                        <span className="flex items-center gap-2.5">
+                                          <span
                                             aria-hidden="true"
+                                            className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
+                                              pathname === sub.href
+                                                ? "bg-sky-300 scale-100 opacity-100"
+                                                : "bg-sky-300 scale-0 opacity-0 group-hover/item:scale-100 group-hover/item:opacity-100"
+                                            }`}
                                           />
+                                          <span>{sub.title}</span>
                                         </span>
-                                        <span>{sub.title}</span>
                                       </Link>
                                     )}
                                   </li>
@@ -810,7 +797,6 @@ export default function Navbar() {
               const hasDropdown = Boolean(item.dropdown?.length);
               const isExpanded = expandedMobile === item.name;
               const isActive = isRouteActive(item.href);
-              const DirectIcon = item.icon;
 
               return (
                 <li
@@ -842,7 +828,6 @@ export default function Navbar() {
                       {isExpanded && (
                         <ul className="pl-2 pr-1 pb-3 pt-1.5 space-y-1">
                           {item.dropdown.map((sub) => {
-                            const SubIcon = sub.icon;
                             const hasSubItems = Boolean(sub.subItems?.length);
                             const isSubExpanded = expandedMobileSub === sub.title;
 
@@ -854,12 +839,14 @@ export default function Navbar() {
                                       type="button"
                                       onClick={() => toggleMobileSubAccordion(sub.title)}
                                       aria-expanded={isSubExpanded}
-                                      className="w-full flex items-center justify-between gap-2 px-3 py-2 rounded-md text-xs font-medium text-white/85 hover:text-white hover:bg-white/10 transition-colors"
+                                      className="w-full flex items-center justify-between gap-2 px-3 py-2.5 rounded-md text-xs font-medium text-white/90 hover:text-white hover:bg-white/10 transition-colors"
                                     >
-                                      <span className="flex items-center gap-2.5 text-left">
-                                        <SubIcon
+                                      <span className="flex items-center gap-2 text-left">
+                                        <span
                                           aria-hidden="true"
-                                          className="w-3.5 h-3.5 text-sky-300 shrink-0"
+                                          className={`w-1.5 h-1.5 rounded-full bg-sky-300 shrink-0 transition-opacity ${
+                                            isSubExpanded ? "opacity-100" : "opacity-50"
+                                          }`}
                                         />
                                         <span>{sub.title}</span>
                                       </span>
@@ -873,10 +860,10 @@ export default function Navbar() {
 
                                     {/* Level-2 Nested Accordion Content */}
                                     {isSubExpanded && (
-                                      <ul className="ml-5 pl-3 border-l border-sky-300/25 py-1 space-y-1">
+                                      <ul className="ml-4 pl-3 border-l border-sky-300/30 py-1 space-y-1">
                                         {sub.subItems.map((nested) => {
-                                          const NestedIcon = nested.icon;
-                                          const isNestedActive = pathname === nested.href;
+                                          const isNestedActive =
+                                            pathname === nested.href;
 
                                           return (
                                             <li key={nested.title}>
@@ -888,13 +875,17 @@ export default function Navbar() {
                                                 }
                                                 className={`flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs transition-colors ${
                                                   isNestedActive
-                                                    ? "text-white bg-white/15 font-semibold"
-                                                    : "text-sky-100/80 hover:text-white hover:bg-white/10"
+                                                    ? "text-white bg-white/20 font-semibold"
+                                                    : "text-white/80 hover:text-white hover:bg-white/10"
                                                 }`}
                                               >
-                                                <NestedIcon
+                                                <span
                                                   aria-hidden="true"
-                                                  className="w-3 h-3 text-sky-300 shrink-0"
+                                                  className={`w-1 h-1 rounded-full ${
+                                                    isNestedActive
+                                                      ? "bg-sky-300"
+                                                      : "bg-white/40"
+                                                  }`}
                                                 />
                                                 <span>{nested.title}</span>
                                               </Link>
@@ -913,13 +904,17 @@ export default function Navbar() {
                                     }
                                     className={`flex items-center gap-2.5 px-3 py-2 rounded-md text-xs transition-colors ${
                                       pathname === sub.href
-                                        ? "text-white bg-white/15 font-semibold"
-                                        : "text-white/80 hover:text-white hover:bg-white/10"
+                                        ? "text-white bg-white/20 font-semibold"
+                                        : "text-white/85 hover:text-white hover:bg-white/10"
                                     }`}
                                   >
-                                    <SubIcon
+                                    <span
                                       aria-hidden="true"
-                                      className="w-3.5 h-3.5 text-sky-300 shrink-0"
+                                      className={`w-1.5 h-1.5 rounded-full ${
+                                        pathname === sub.href
+                                          ? "bg-sky-300"
+                                          : "bg-white/40"
+                                      }`}
                                     />
                                     <span>{sub.title}</span>
                                   </Link>
@@ -942,12 +937,6 @@ export default function Navbar() {
                       }`}
                     >
                       <span>{item.name}</span>
-                      {DirectIcon && (
-                        <DirectIcon
-                          aria-hidden="true"
-                          className="w-4 h-4 text-sky-300"
-                        />
-                      )}
                     </Link>
                   )}
                 </li>

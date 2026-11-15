@@ -14,10 +14,10 @@ export default function HomePage() {
       <HeroSlider />
       <AboutSection />
       <ServicesSection />
-      <ClientsSection />
       <SisterConcernsSection />
       <BlogsSection />
       <VideosSection />
+      <ClientsSection />
       <GetInTouchSection />
     </>
   );
