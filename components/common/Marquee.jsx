@@ -11,7 +11,7 @@ export function Marquee({
   children,
   pauseOnHover = true,
   direction = "left",
-  speed = 35,
+  speed = 5,
   repeat = 4,
   className,
   ...props
