@@ -315,12 +315,23 @@ export default function Navbar() {
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
+  // Detect if current page is a light background page (without dark hero banner)
+  // so that the navbar always renders with solid background and visible dark text
+  const isLightPage = Boolean(
+    pathname &&
+      (pathname.startsWith("/services/aqua-medicine/products/") ||
+        pathname.startsWith("/products/")) &&
+      pathname !== "/services/aqua-medicine/products"
+  );
+
+  const isSolidHeader = isScrolled || isLightPage;
+
   return (
     <>
       <header
       ref={navRef}
       className={`fixed top-0 left-0 right-0 z-40 w-full select-none transition-all duration-300 ${
-        isScrolled
+        isSolidHeader
           ? "bg-white/95 backdrop-blur-md shadow-md border-b border-slate-100"
           : "bg-transparent border-b border-white/10"
       }`}
@@ -332,6 +343,8 @@ export default function Navbar() {
         className={`w-full transition-all duration-300 overflow-hidden ${
           isScrolled
             ? "max-h-0 opacity-0 -translate-y-2 pointer-events-none border-b-0"
+            : isLightPage
+            ? "max-h-12 opacity-100 translate-y-0 bg-[#001c44] text-white border-b border-[#00285e]"
             : "max-h-12 opacity-100 translate-y-0 bg-black/25 backdrop-blur-xs text-white/90 border-b border-white/10"
         }`}
       >
@@ -402,7 +415,7 @@ export default function Navbar() {
                   height={102}
                   priority
                   className={`h-full w-auto object-contain transition-all duration-300 ${
-                    isScrolled
+                    isSolidHeader
                       ? "brightness-100"
                       : "brightness-0 invert drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
                   }`}
@@ -450,7 +463,7 @@ export default function Navbar() {
                             aria-expanded={isOpen}
                             aria-controls={dropdownId}
                             className={`relative flex items-center gap-1 px-2.5 xl:px-3.5 py-2 text-[13px] xl:text-sm font-semibold tracking-normal rounded-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0084d6] ${
-                              isScrolled
+                              isSolidHeader
                                 ? isOpen || isActive
                                   ? "text-[#004494] bg-blue-50 font-bold"
                                   : "text-[#004494] hover:text-[#002d62] hover:bg-blue-50/80"
@@ -465,7 +478,7 @@ export default function Navbar() {
                               className={`w-3.5 h-3.5 transition-transform duration-200 ${
                                 isOpen ? "rotate-180" : ""
                               } ${
-                                isScrolled
+                                isSolidHeader
                                   ? isOpen || isActive
                                     ? "text-[#004494]"
                                     : "text-[#004494]/70"
@@ -478,7 +491,7 @@ export default function Navbar() {
                               <span
                                 aria-hidden="true"
                                 className={`absolute left-3 right-3 bottom-0.5 h-0.5 rounded-full ${
-                                  isScrolled ? "bg-[#004494]" : "bg-sky-300"
+                                  isSolidHeader ? "bg-[#004494]" : "bg-sky-300"
                                 }`}
                               />
                             )}
@@ -633,7 +646,7 @@ export default function Navbar() {
                           href={item.href}
                           aria-current={isActive ? "page" : undefined}
                           className={`relative inline-flex items-center px-2.5 xl:px-3.5 py-2 text-[13px] xl:text-sm font-semibold tracking-normal rounded-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0084d6] ${
-                            isScrolled
+                            isSolidHeader
                               ? isActive
                                 ? "text-[#004494] bg-blue-50 font-bold"
                                 : "text-[#004494] hover:text-[#002d62] hover:bg-blue-50/80"
@@ -647,7 +660,7 @@ export default function Navbar() {
                             <span
                               aria-hidden="true"
                               className={`absolute left-3 right-3 bottom-0.5 h-0.5 rounded-full ${
-                                isScrolled ? "bg-[#004494]" : "bg-sky-300"
+                                isSolidHeader ? "bg-[#004494]" : "bg-sky-300"
                               }`}
                             />
                           )}
@@ -669,7 +682,7 @@ export default function Navbar() {
                   aria-label="Search"
                   aria-expanded={isSearchOpen}
                   className={`w-9 h-9 xl:w-10 xl:h-10 rounded-full flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004494] ${
-                    isScrolled
+                    isSolidHeader
                       ? "text-[#004494] hover:text-[#002d62] hover:bg-blue-50"
                       : "text-white/95 hover:text-white hover:bg-white/15"
                   }`}
@@ -710,7 +723,7 @@ export default function Navbar() {
                 href="/contact"
                 aria-current={pathname === "/contact" ? "page" : undefined}
                 className={`hidden sm:inline-flex items-center justify-center font-bold text-xs tracking-wider uppercase px-4 xl:px-5 py-2.5 rounded-md shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 whitespace-nowrap ${
-                  isScrolled
+                  isSolidHeader
                     ? "bg-[#004494] hover:bg-[#003370] text-white shadow-blue-900/15"
                     : "bg-[#0084d6] hover:bg-[#0073bc] text-white shadow-sky-500/20"
                 }`}
@@ -725,7 +738,7 @@ export default function Navbar() {
                 aria-label="Open navigation drawer"
                 aria-expanded={mobileOpen}
                 className={`lg:hidden w-10 h-10 rounded-md flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004494] transition-colors ${
-                  isScrolled
+                  isSolidHeader
                     ? "text-[#004494] hover:bg-blue-50"
                     : "text-white hover:bg-white/15"
                 }`}
