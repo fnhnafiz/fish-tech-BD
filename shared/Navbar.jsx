@@ -98,6 +98,20 @@ const NAV_ITEMS = [
       {
         title: "MoU (Memorandum of Understanding)",
         href: "/about/mou",
+        subItems: [
+          {
+            title: "University of Rajshahi (RU)",
+            href: "/about/mou/ru",
+          },
+          {
+            title: "Rangamati Science and Technology University (RMSTU)",
+            href: "/about/mou/rmstu",
+          },
+          {
+            title: "Bangladesh Agricultural University (BAU)",
+            href: "/about/mou/bau",
+          },
+        ],
       },
     ],
   },

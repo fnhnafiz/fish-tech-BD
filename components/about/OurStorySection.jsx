@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 export default function OurStorySection({
@@ -13,6 +12,7 @@ export default function OurStorySection({
   description = "Fishtech BD Limited is committed to empowering Bangladesh’s aquaculture and livestock sectors with science-backed aqua medicines, precision diagnostics, and nationwide technical advisory. Together with farmers and partners, we build healthier ponds, stronger yields, and resilient rural livelihoods.",
   storyP1 = "Founded with a bold vision to modernize Bangladesh's aquaculture ecosystem, Fishtech BD Limited has emerged as an authoritative leader in high-health fish seed multiplication, Specific Pathogen-Free (SPF) shrimp breeding, and scientific aquatic animal healthcare.",
   storyP2 = "Through our specialized sister concerns, dedicated research laboratories, and nationwide Centres of Excellence (CoE), we bridge laboratory precision with ground-level pond management. Our teams work tirelessly across all 64 districts to ensure disease-resilient yields, ecological balance, and economic prosperity for farming families.",
+  videoSrc = "/about-video.mp4",
 }) {
   return (
     <section
@@ -82,26 +82,36 @@ export default function OurStorySection({
           </div>
 
           {/* ======================================================== */}
-          {/* RIGHT COLUMN: Pure Bangladesh Map Image                   */}
-          {/* (Clean 3D relief map — ZERO tags, ZERO overlays)          */}
+          {/* RIGHT COLUMN: Fishtech BD Story Video                     */}
+          {/* (Continuous Loop, Autoplay, No Controls)                  */}
           {/* ======================================================== */}
-          <div className="lg:col-span-6">
-            <div className="relative group">
-              {/* Soft Ambient Glow */}
+          <div className="lg:col-span-6 flex items-center">
+            <div className="relative group w-full">
+              {/* Soft Ambient Brand Glow */}
               <div
                 aria-hidden="true"
-                className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#004494]/15 via-sky-300/20 to-emerald-300/15 blur-2xl opacity-60 group-hover:opacity-100 transition duration-500"
+                className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#004494]/20 via-[#0084d6]/20 to-emerald-400/20 blur-2xl opacity-70 group-hover:opacity-100 transition duration-500"
               />
 
-              {/* Pure Map Image Frame — Absolutely NO tags, badges, or overlays */}
-              <div className="relative w-full h-[440px] sm:h-[500px] lg:h-[560px] rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/80 bg-white shadow-xl flex items-center justify-center p-3 sm:p-5">
-                <Image
-                  src="/images/bangladesh-map.jpg"
-                  alt="Map of Bangladesh - Fishtech BD Nationwide Operations"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-contain p-2 sm:p-4 transition-transform duration-700 ease-out group-hover:scale-105"
+              {/* Video Player Frame - Infinite Loop Autoplay Without Controls */}
+              <div className="relative w-full aspect-video sm:aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/90 bg-slate-950 shadow-2xl ring-1 ring-slate-900/5">
+                <video
+                  src={videoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                  onLoadedMetadata={(e) => {
+                    e.currentTarget.muted = true;
+                    e.currentTarget.play().catch(() => {});
+                  }}
+                  className="h-full w-full object-cover object-center pointer-events-none"
+                />
+                {/* Subtle inner protective vignette */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl sm:rounded-3xl"
                 />
               </div>
             </div>

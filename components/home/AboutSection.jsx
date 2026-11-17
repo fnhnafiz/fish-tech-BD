@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   ArrowRight,
   Users,
@@ -161,6 +160,7 @@ export default function AboutSection({
   ctaLabel = "Learn More",
   ctaHref = "/about/overview",
   badgeText = "Trusted Across Bangladesh",
+  videoSrc = "/about-video.mp4",
   images = DEFAULT_IMAGES,
 }) {
   const sectionRef = useRef(null);
@@ -252,50 +252,7 @@ export default function AboutSection({
               {description}
             </p>
 
-            {/* 2x2 Key Stat Counters Grid */}
-            <div
-              className="grid grid-cols-2 gap-3.5 sm:gap-4 pt-1"
-              aria-label="Fishtech BD Nationwide Impact Metrics"
-            >
-              {stats.map((stat) => {
-                const IconComponent = ICON_MAP[stat.icon] || Users;
-                const style = ACCENT_STYLES[stat.accent] || ACCENT_STYLES.blue;
-
-                return (
-                  <article
-                    key={stat.id}
-                    className="group relative overflow-hidden rounded-xl border border-slate-200/90  p-4 sm:p-5 shadow-[0_2px_10px_-4px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0084d6]/45 hover:shadow-lg motion-reduce:transition-none motion-reduce:hover:transform-none"
-                  >
-                    {/* Top hairline hover indicator */}
-                    <span
-                      aria-hidden="true"
-                      className={`absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 ${style.bar}`}
-                    />
-
-                    <div className="flex items-start justify-between gap-2">
-                      <div>
-                        <div className="text-2xl font-extrabold tracking-tight text-[#004494] sm:text-3xl">
-                          <CountUpNumber
-                            target={stat.value}
-                            suffix={stat.suffix}
-                            startAnimation={isVisible}
-                          />
-                        </div>
-                        <p className="mt-1 text-xs font-semibold tracking-wide text-slate-600 sm:text-sm">
-                          {stat.label}
-                        </p>
-                      </div>
-
-                      <div
-                        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors duration-300 sm:h-10 sm:w-10 ${style.iconWrap}`}
-                      >
-                        <IconComponent className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
-                      </div>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
+           
 
             {/* Primary CTA */}
             <div className="pt-2">
@@ -313,7 +270,7 @@ export default function AboutSection({
           </div>
 
           {/* ======================================================== */}
-          {/* RIGHT COLUMN: Editorial Photo Collage & Trust Badge      */}
+          {/* RIGHT COLUMN: Brand Video Showcase (Autoplay, Infinite)  */}
           {/* ======================================================== */}
           <div
             className={`lg:col-span-6 transition-all duration-700 delay-150 ease-out motion-reduce:transition-none motion-reduce:transform-none ${
@@ -323,7 +280,7 @@ export default function AboutSection({
             }`}
           >
             <div className="relative mx-auto max-w-xl pb-6 sm:pb-8 lg:max-w-none">
-              {/* Architectural backdrop dot grid behind collage */}
+              {/* Architectural backdrop dot grid behind video */}
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute -right-4 -top-4 h-48 w-48 rounded-2xl bg-[radial-gradient(#0084d6_1.5px,transparent_1.5px)] [background-size:14px_14px] opacity-25"
@@ -345,67 +302,27 @@ export default function AboutSection({
                 </div>
               </div>
 
-              {/* Primary Large Farm Photo */}
-              <div className="group relative ml-auto w-full overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-100 shadow-[0_20px_50px_-15px_rgba(0,40,95,0.18)] sm:w-[90%]">
-                <div className="relative aspect-[16/11] w-full">
-                  <Image
-                    src={images.primary.src}
-                    alt={images.primary.alt}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 45vw"
-                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transition-none"
+              {/* Brand Video Frame - Infinite Loop Autoplay Without Controls */}
+              <div className="group relative w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-slate-950 shadow-[0_20px_50px_-15px_rgba(0,40,95,0.25)] ring-1 ring-slate-900/5">
+                <div className="relative aspect-video sm:aspect-[16/10] w-full overflow-hidden bg-slate-950">
+                  <video
+                    src={videoSrc}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    onLoadedMetadata={(e) => {
+                      e.currentTarget.muted = true;
+                      e.currentTarget.play().catch(() => {});
+                    }}
+                    className="h-full w-full object-cover object-center pointer-events-none"
                   />
+                  {/* Subtle inner protective vignette */}
                   <div
                     aria-hidden="true"
-                    className="absolute inset-0 bg-gradient-to-t from-[#001c44]/35 via-transparent to-transparent"
+                    className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl sm:rounded-3xl"
                   />
-                </div>
-              </div>
-
-              {/* Staggered Overlapping Inset Photos (Lab + Field Support) */}
-              <div className="relative z-10 -mt-10 grid grid-cols-2 gap-3.5 pr-3 sm:-mt-16 sm:gap-5 sm:pr-10">
-                {/* Secondary Inset Photo: Lab Diagnostics */}
-                <div className="group relative overflow-hidden rounded-xl border-4 border-white bg-slate-100 shadow-xl ring-1 ring-slate-900/5">
-                  <div className="relative aspect-[4/3] w-full">
-                    <Image
-                      src={images.secondary.src}
-                      alt={images.secondary.alt}
-                      fill
-                      sizes="(max-width: 640px) 45vw, 22vw"
-                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transition-none"
-                    />
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-transparent to-transparent"
-                    />
-                    {images.secondary.caption && (
-                      <span className="absolute bottom-2.5 left-2.5 right-2.5 truncate text-[11px] font-semibold text-white sm:text-xs">
-                        {images.secondary.caption}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Tertiary Inset Photo: Field Technical Advisory */}
-                <div className="group relative translate-y-4 overflow-hidden rounded-xl border-4 border-white bg-slate-100 shadow-xl ring-1 ring-slate-900/5 sm:translate-y-6">
-                  <div className="relative aspect-[4/3] w-full">
-                    <Image
-                      src={images.tertiary.src}
-                      alt={images.tertiary.alt}
-                      fill
-                      sizes="(max-width: 640px) 45vw, 22vw"
-                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transition-none"
-                    />
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-transparent to-transparent"
-                    />
-                    {images.tertiary.caption && (
-                      <span className="absolute bottom-2.5 left-2.5 right-2.5 truncate text-[11px] font-semibold text-white sm:text-xs">
-                        {images.tertiary.caption}
-                      </span>
-                    )}
-                  </div>
                 </div>
               </div>
             </div>

@@ -15,9 +15,9 @@ import {
   Briefcase,
   Sparkles,
   X,
-  CheckCircle2,
   Layers,
   Eye,
+  ArrowRight,
 } from "lucide-react";
 
 const DIRECTORS = [
@@ -33,14 +33,10 @@ const DIRECTORS = [
       "Guiding long-term institutional expansion, market competitiveness, and corporate compliance across our fisheries and animal health divisions.",
     bio:
       "Mr. Kh. Farhad Hossain is a seasoned director and founding pillar of Growtech and Fishtech Group. With over two decades of transformative leadership in Bangladesh's agricultural, fisheries, and livestock input sectors, he has steered the organization from grassroots trading to a multi-concern agribusiness powerhouse. His visionary approach emphasizes corporate integrity, financial prudence, and building enduring farmer trust nationwide.",
-    keyResponsibilities: [
-      "Strategic corporate governance, capital planning, and long-term organizational roadmap.",
-      "National market positioning and high-level synergies across all sister concerns.",
-      "Fostering institutional partnerships, international trade compliance, and enterprise growth.",
-      "Promoting customer-centric ethos and fiscal accountability for farmer investments.",
+    portfolioParagraphs: [
+      "In his executive governance role, Mr. Hossain steers corporate strategic direction, long-term capital planning, and organizational risk governance. He establishes institutional synergies across all sister concerns to ensure financial resilience and unified operational excellence throughout volatile commercial and agricultural cycles.",
+      "He spearheads corporate compliance, international trade agreements, and regulatory partnerships that position Fishtech Group as an ethical market leader. Driven by a farmer-centric ethos, he guarantees fiscal transparency and accountability, ensuring that every farmer and distributor investment yields sustainable, long-term prosperity.",
     ],
-    accent: "from-amber-500 to-amber-700",
-    badgeColor: "bg-amber-500 text-slate-900 border-amber-400",
   },
   {
     id: "ataul-karim",
@@ -54,14 +50,10 @@ const DIRECTORS = [
       "Directing science-driven aquaculture inputs, aqua medicine safety, and continuous enhancement of field performance standards.",
     bio:
       "Mr. Md. Ataul Karim Bhuiyan brings profound technical acumen and scientific dedication to the board of Fishtech and Growtech Group. Directing the formulation, safety, and field efficacy of science-backed aqua medicines, probiotics, and water condition inputs, he ensures every product introduced to Bangladeshi farmers meets stringent biological standards. His leadership has pioneered antibiotic-free aquaculture protocols across commercial hatcheries and grow-out ponds.",
-    keyResponsibilities: [
-      "Leading technical R&D and proprietary formulation of advanced aqua healthcare products.",
-      "Enforcing strict biological quarantine and quality assurance across imported and local inputs.",
-      "Guiding regional Aquaculture Centres of Excellence (CoE) and PCR diagnostic protocols.",
-      "Championing sustainable, antibiotic-free farm management methodologies across Bangladesh.",
+    portfolioParagraphs: [
+      "Leading technical research and scientific innovation, Mr. Bhuiyan directs the formulation laboratories and quality assurance infrastructure. He ensures all microbial probiotics, water conditioners, and biomedical remedies undergo rigorous laboratory PCR screening and clinical field validation before reaching commercial production.",
+      "Under his guidance, Fishtech established its specialized regional Aquaculture Centres of Excellence (CoE) and mobile diagnostic units. He remains a national champion for sustainable, antibiotic-free aquaculture methodologies, collaborating closely with academic researchers and commercial farmers to elevate biosecurity benchmarks across Bangladesh.",
     ],
-    accent: "from-amber-500 to-amber-700",
-    badgeColor: "bg-amber-500 text-slate-900 border-amber-400",
   },
   {
     id: "tarique-sarker",
@@ -75,14 +67,10 @@ const DIRECTORS = [
       "Overseeing nationwide farmer reach, ethical dealer networks, and rapid technical advisory across all farming clusters.",
     bio:
       "Mohammed Tarique Sarker is an accomplished director overseeing national supply chain resilience, dealer network expansion, and grassroots farmer welfare. With hands-on immersion in regional aquaculture clusters spanning Khulna, Satkhira, Mymensingh, and Cox's Bazar, he spearheads the last-mile delivery of high-health seed, oxygenated logistics, and prompt on-pond advisory. He is deeply committed to empowering smallholder farmers through accessible, ethical distribution.",
-    keyResponsibilities: [
-      "Managing nationwide distribution across 150+ authorized dealer hubs in all 64 districts.",
-      "Establishing cold-chain logistics and specialized live seed transportation fleets.",
-      "Overseeing on-pond technical advisory officers and rapid farmer support hotlines.",
-      "Safeguarding fair pricing, dealer support, and inclusive prosperity for coastal and inland farmers.",
+    portfolioParagraphs: [
+      "Overseeing nationwide distribution logistics, Mr. Sarker directs a network of over 150 authorized depots and distribution partners across all 64 districts. He pioneered temperature-regulated supply chains and specialized oxygenated transport vehicles that ensure live fingerlings and temperature-sensitive biologicals reach farming clusters with zero quality degradation.",
+      "Dedicated to grassroots farmer welfare, he leads on-site technical advisory teams and emergency grower helplines. By enforcing fair pricing mechanisms, dealer empowerment programs, and rapid pond-side consultation, he has fostered deep, enduring trust among commercial and smallholder cultivators throughout Bangladesh.",
     ],
-    accent: "from-amber-500 to-amber-700",
-    badgeColor: "bg-amber-500 text-slate-900 border-amber-400",
   },
 ];
 
@@ -160,7 +148,7 @@ export default function BoardOfDirectorsSection({
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:28px_28px] opacity-40"
       />
 
-      {/* Ambient Lighting Accents */}
+      {/* Ambient Lighting Accents in Website Brand Colors */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-20 top-20 h-96 w-96 rounded-full bg-sky-100/40 blur-3xl"
@@ -176,15 +164,9 @@ export default function BoardOfDirectorsSection({
         {/* 1. CORPORATE INTRO & MISSION STATEMENT                     */}
         {/* ======================================================== */}
         <div className="max-w-4xl mx-auto text-center space-y-5">
-          {/* Eyebrow Pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#004494] text-xs font-black uppercase tracking-[0.16em]">
-            <Award className="w-3.5 h-3.5 text-amber-500" aria-hidden="true" />
-            <span>20+ Years of Industry Leadership</span>
-          </div>
-
           {/* Heading */}
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-snug">
-            Committed to Customer Welfare &amp; <span className="text-[#004494]">Aquaculture Excellence</span>
+            Message from &amp; <span className="text-[#004494]">The Chairman</span>
           </h2>
 
           {/* Intro Statement Card */}
@@ -192,39 +174,6 @@ export default function BoardOfDirectorsSection({
             <p className="text-sm sm:text-base lg:text-[17px] text-slate-700 leading-relaxed font-medium">
               &ldquo;{corporateIntro}&rdquo;
             </p>
-
-            {/* Core Values / Commitments Pillars */}
-            <div className="mt-6 pt-5 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center text-[#004494] shrink-0 font-black text-xs">
-                  20+
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-slate-900">Years Experience</div>
-                  <div className="text-[11px] text-slate-500">Fisheries &amp; Livestock</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0">
-                  <ShieldCheck className="w-5 h-5" aria-hidden="true" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-slate-900">Quality Ethos</div>
-                  <div className="text-[11px] text-slate-500">Accountability First</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 shrink-0">
-                  <Sparkles className="w-5 h-5" aria-hidden="true" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-slate-900">Customer Welfare</div>
-                  <div className="text-[11px] text-slate-500">Nationwide Impact</div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -233,16 +182,16 @@ export default function BoardOfDirectorsSection({
         {/* ======================================================== */}
         <div className="space-y-8 sm:space-y-10">
           
-          {/* Section Title Ribbon */}
+          {/* Section Title Ribbon in Website Brand Color */}
           <div className="flex flex-col items-center justify-center gap-2">
             <div className="relative inline-flex items-center">
               <div
                 aria-hidden="true"
-                className="absolute -inset-1 rounded-xl bg-gradient-to-r from-[#004494] to-[#0084d6] opacity-30 blur-sm"
+                className="absolute -inset-1 rounded-xl bg-gradient-to-r from-[#004494] to-[#0084d6] opacity-25 blur-sm"
               />
 
-              <div className="relative flex items-center gap-3 rounded-lg bg-[#004494] px-8 sm:px-12 py-3 text-white shadow-xl border border-sky-300/30">
-                <Briefcase className="w-5 h-5 text-amber-400 shrink-0" aria-hidden="true" />
+              <div className="relative flex items-center gap-3 rounded-xl bg-[#004494] px-8 sm:px-12 py-3 text-white shadow-xl border border-sky-300/30">
+                <Briefcase className="w-5 h-5 text-sky-300 shrink-0" aria-hidden="true" />
                 <h3 className="text-base sm:text-lg lg:text-xl font-black uppercase tracking-[0.18em]">
                   BOARD OF DIRECTORS
                 </h3>
@@ -268,72 +217,56 @@ export default function BoardOfDirectorsSection({
                     setSelectedDirector(director);
                   }
                 }}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-[0_8px_30px_-6px_rgba(0,68,148,0.08)] transition-all duration-300 hover:-translate-y-2 hover:border-[#0084d6]/60 hover:shadow-[0_22px_50px_-10px_rgba(0,68,148,0.22)] cursor-pointer text-left select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004494]"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-[0_8px_30px_-6px_rgba(0,68,148,0.08)] transition-all duration-300 hover:-translate-y-2 hover:border-[#0084d6] hover:shadow-[0_22px_50px_-10px_rgba(0,68,148,0.20)] cursor-pointer text-left select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004494]"
               >
-                {/* Top Subtle Amber / Navy Reveal Line */}
+                {/* Top Brand Color Reveal Line */}
                 <span
                   aria-hidden="true"
-                  className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-amber-500 via-[#0084d6] to-[#004494] transition-transform duration-300 group-hover:scale-x-100"
+                  className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-[#004494] via-[#0084d6] to-sky-400 transition-transform duration-300 group-hover:scale-x-100"
                 />
 
-                <div className="space-y-5">
-                  {/* Portrait Image Frame with Bespoke Gold/Amber Border */}
-                  <div className="relative mx-auto w-full max-w-[240px] aspect-[1/1.16] rounded-xl overflow-hidden p-1.5 bg-gradient-to-b from-amber-400 via-amber-300 to-amber-500 shadow-md">
-                    <div className="relative w-full h-full rounded-lg overflow-hidden bg-slate-100">
+                <div className="space-y-6">
+                  {/* Portrait Image Frame with Website Brand Color (Navy/Blue/Sky) */}
+                  <div className="relative mx-auto w-full max-w-[240px] aspect-[1/1.16] rounded-2xl overflow-hidden p-1 bg-gradient-to-b from-[#004494] via-[#0060b8] to-[#0084d6] shadow-md group-hover:shadow-lg transition-all duration-300">
+                    {/* Background Behind Photo with Website Brand Color */}
+                    <div className="relative w-full h-full rounded-xl overflow-hidden bg-gradient-to-b from-[#001738] to-[#002d62]">
                       <Image
                         src={director.image}
                         alt={director.name}
                         fill
-                        sizes="(max-width: 768px) 80vw, 30vw"
-                        className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 240px"
+                        className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                       />
-                    </div>
 
-                    {/* Interactive "Click to View Profile" Overlay Badge */}
-                    <div className="absolute inset-0 bg-[#004494]/60 backdrop-blur-2xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-3">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-black text-[#004494] shadow-lg transform -translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
-                        <Eye className="w-3.5 h-3.5 text-amber-500" />
-                        <span>View Profile</span>
-                      </span>
+                      {/* Interactive "Click to View Profile" Overlay Badge */}
+                      <div className="absolute inset-0 bg-[#004494]/50 backdrop-blur-2xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-3">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3.5 py-1.5 text-xs font-black text-[#004494] shadow-lg transform -translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+                          <Eye className="w-3.5 h-3.5 text-[#0084d6]" />
+                          <span>View Full Profile</span>
+                        </span>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Nameplate (Golden Amber Banner from Reference, Elevated) */}
-                  <div className="text-center space-y-1">
-                    <div className="rounded-md bg-gradient-to-r from-[#e69500] via-[#f59e0b] to-[#d97706] py-2 px-3 text-slate-950 font-black text-xs sm:text-[13px] tracking-wider uppercase shadow-xs group-hover:brightness-105 transition-all">
+                  {/* Name and Designation Only (No orange color box, clean standard typography) */}
+                  <div className="text-center space-y-2">
+                    <h3 className="text-base sm:text-lg font-black text-slate-900 group-hover:text-[#004494] transition-colors tracking-tight leading-snug">
                       {director.name}
-                    </div>
+                    </h3>
 
-                    <div className="pt-1.5 flex items-center justify-center gap-1.5">
-                      <span className="inline-block w-2 h-2 rounded-full bg-[#004494]" />
-                      <span className="text-xs font-bold text-[#004494] uppercase tracking-widest">
-                        {director.designation}
-                      </span>
+                    <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-sky-50 text-[#004494] text-xs font-bold uppercase tracking-wider border border-sky-100">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      <span>{director.designation}</span>
                     </div>
-                  </div>
-
-                  {/* Executive Role & Portfolio Description */}
-                  <div className="pt-3 border-t border-slate-100 text-center space-y-2">
-                    <div className="text-xs font-extrabold text-slate-800 group-hover:text-[#004494] transition-colors">
-                      {director.focus}
-                    </div>
-                    <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
-                      {director.description}
-                    </p>
                   </div>
                 </div>
 
-                {/* Bottom Interactive Trigger Note */}
-                <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium text-slate-400">
-                  <span className="flex items-center gap-1 text-emerald-600 font-semibold">
-                    <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
-                    <span>Board Member</span>
-                  </span>
-
-                  <span className="inline-flex items-center gap-1 text-[#004494] font-bold text-[11px] group-hover:underline">
-                    <span>Details</span>
-                    <Sparkles className="w-3 h-3 text-amber-500" />
-                  </span>
+                {/* Bottom Action: Prominently Styled Details Button (Board Member text removed) */}
+                <div className="mt-6 pt-4 border-t border-slate-100">
+                  <div className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#004494] via-[#0060b8] to-[#0084d6] text-white py-2.5 px-4 text-xs font-bold shadow-sm shadow-blue-900/15 group-hover:shadow-md group-hover:from-[#003878] group-hover:to-[#0070b8] transition-all">
+                    <span>View Executive Details</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
               </div>
             ))}
@@ -341,9 +274,9 @@ export default function BoardOfDirectorsSection({
         </div>
 
         {/* ======================================================== */}
-        {/* 3. CORPORATE & REGISTERED OFFICES (From Reference Footer) */}
+        {/* 3. CORPORATE & REGISTERED OFFICES                         */}
         {/* ======================================================== */}
-        <div className="max-w-5xl mx-auto rounded-2xl bg-gradient-to-r from-[#001738] via-[#00285e] to-[#001c44] text-white p-6 sm:p-8 lg:p-10 shadow-2xl border border-white/10">
+        <div className="max-w-5xl mx-auto rounded-3xl bg-gradient-to-r from-[#001738] via-[#00285e] to-[#001c44] text-white p-6 sm:p-8 lg:p-10 shadow-2xl border border-white/10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Header Column */}
@@ -363,48 +296,38 @@ export default function BoardOfDirectorsSection({
             <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
               
               {/* Corporate Office */}
-              <div className="rounded-xl bg-white/10 backdrop-blur-xs p-5 border border-white/15 space-y-3">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-sky-400/20 flex items-center justify-center text-sky-300 shrink-0">
-                    <Building2 className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-white">Corporate Office</h4>
-                    <span className="text-[10px] text-sky-200">Central Administrative Headquarters</span>
-                  </div>
+              <div className="rounded-2xl bg-white/10 backdrop-blur-xs p-5 border border-white/15 space-y-3">
+                <div className="flex items-center gap-2.5 text-sky-300">
+                  <Building2 className="w-4 h-4 shrink-0" />
+                  <h4 className="font-extrabold text-sm text-white">
+                    Corporate Office
+                  </h4>
                 </div>
-
-                <p className="text-xs text-sky-100/90 leading-relaxed">
+                <p className="text-xs text-white/80 leading-relaxed">
                   House #09, Road #08, Sector #09, Uttara, Dhaka-1230, Bangladesh
                 </p>
-
-                <div className="pt-2 border-t border-white/10 space-y-1 text-xs text-sky-200">
+                <div className="pt-1 text-xs text-sky-200/90 space-y-1">
                   <div className="flex items-center gap-2">
-                    <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                    <Phone className="w-3.5 h-3.5 text-sky-400 shrink-0" />
                     <span>+88-02-8932714, +88 01958-515524</span>
                   </div>
                 </div>
               </div>
 
               {/* Registered Office */}
-              <div className="rounded-xl bg-white/10 backdrop-blur-xs p-5 border border-white/15 space-y-3">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-400/20 flex items-center justify-center text-emerald-300 shrink-0">
-                    <MapPin className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-white">Registered Office</h4>
-                    <span className="text-[10px] text-emerald-200">Regional &amp; Legal Secretariat</span>
-                  </div>
+              <div className="rounded-2xl bg-white/10 backdrop-blur-xs p-5 border border-white/15 space-y-3">
+                <div className="flex items-center gap-2.5 text-sky-300">
+                  <MapPin className="w-4 h-4 shrink-0" />
+                  <h4 className="font-extrabold text-sm text-white">
+                    Registered Office
+                  </h4>
                 </div>
-
-                <p className="text-xs text-sky-100/90 leading-relaxed">
+                <p className="text-xs text-white/80 leading-relaxed">
                   Khandaker Market Complex, A-158, Horogram Bazar, Rajshahi, Bangladesh
                 </p>
-
-                <div className="pt-2 border-t border-white/10 space-y-1.5 text-xs text-sky-200">
+                <div className="pt-1 text-xs text-sky-200/90 space-y-1">
                   <div className="flex items-center gap-2">
-                    <Mail className="w-3.5 h-3.5 text-sky-300 shrink-0" />
+                    <Mail className="w-3.5 h-3.5 text-sky-400 shrink-0" />
                     <span>fishtech_bd@yahoo.com</span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -421,7 +344,7 @@ export default function BoardOfDirectorsSection({
       </div>
 
       {/* ======================================================== */}
-      {/* 4. EXECUTIVE DIRECTOR DETAILS MODAL (Smooth & Responsive)  */}
+      {/* 4. EXECUTIVE DIRECTOR DETAILS MODAL                        */}
       {/* ======================================================== */}
       <AnimatePresence>
         {selectedDirector && (
@@ -444,7 +367,7 @@ export default function BoardOfDirectorsSection({
               aria-hidden="true"
             />
 
-            {/* Modal Dialog Card: Smooth scale-in & slide-up */}
+            {/* Modal Dialog Card */}
             <motion.div
               data-lenis-prevent
               initial={{ opacity: 0, scale: 0.95, y: 15 }}
@@ -452,12 +375,12 @@ export default function BoardOfDirectorsSection({
               exit={{ opacity: 0, scale: 0.95, y: 15 }}
               transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative z-10 w-full max-w-3xl max-h-[88vh] flex flex-col rounded-2xl bg-white shadow-2xl border border-slate-200/90 overflow-hidden"
+              className="relative z-10 w-full max-w-3xl max-h-[88vh] flex flex-col rounded-3xl bg-white shadow-2xl border border-slate-200/90 overflow-hidden"
             >
-              {/* Modal Top Decorative Accent Bar */}
+              {/* Modal Top Decorative Accent Bar in Brand Colors */}
               <div
                 aria-hidden="true"
-                className="h-1.5 w-full bg-gradient-to-r from-amber-500 via-[#0084d6] to-[#004494] shrink-0"
+                className="h-1.5 w-full bg-gradient-to-r from-[#004494] via-[#0084d6] to-sky-400 shrink-0"
               />
 
               {/* Modal Floating Close Button (Top-Right) */}
@@ -470,17 +393,17 @@ export default function BoardOfDirectorsSection({
                 <X className="w-5 h-5" aria-hidden="true" />
               </button>
 
-              {/* Scrollable Content Container (Smooth internal scroll isolated with data-lenis-prevent) */}
+              {/* Scrollable Content Container */}
               <div
                 data-lenis-prevent
                 className="overflow-y-auto overscroll-contain p-6 sm:p-8 space-y-6"
               >
                 
-                {/* Director Header: Photo + Name + Designation Banner */}
+                {/* Director Header: Photo + Name + Designation (All in Brand Blue) */}
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-7 pb-6 border-b border-slate-100">
-                  {/* Portrait with Golden Border Frame */}
-                  <div className="relative w-36 h-44 sm:w-40 sm:h-48 shrink-0 rounded-xl overflow-hidden p-1.5 bg-gradient-to-b from-amber-400 via-amber-300 to-amber-500 shadow-md">
-                    <div className="relative w-full h-full rounded-lg overflow-hidden bg-slate-100">
+                  {/* Portrait with Brand Blue Gradient Frame */}
+                  <div className="relative w-36 h-44 sm:w-40 sm:h-48 shrink-0 rounded-2xl overflow-hidden p-1 bg-gradient-to-b from-[#004494] via-[#0060b8] to-[#0084d6] shadow-md">
+                    <div className="relative w-full h-full rounded-xl overflow-hidden bg-gradient-to-b from-[#001738] to-[#002d62]">
                       <Image
                         src={selectedDirector.image}
                         alt={selectedDirector.name}
@@ -493,7 +416,7 @@ export default function BoardOfDirectorsSection({
 
                   {/* Name and Designation Information */}
                   <div className="space-y-2 text-center sm:text-left flex-1">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#004494] text-xs font-bold uppercase tracking-wider">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-[#004494] text-xs font-bold uppercase tracking-wider">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                       <span>{selectedDirector.designationFull}</span>
                     </div>
@@ -505,9 +428,9 @@ export default function BoardOfDirectorsSection({
                       {selectedDirector.name}
                     </h3>
 
-                    <div className="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-2.5 text-xs text-slate-500">
-                      <span className="flex items-center gap-1 font-semibold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200/80">
-                        <Award className="w-3.5 h-3.5 text-amber-600" />
+                    <div className="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-2.5 text-xs">
+                      <span className="flex items-center gap-1 font-semibold text-[#004494] bg-sky-50 px-2.5 py-1 rounded-md border border-sky-100">
+                        <Award className="w-3.5 h-3.5 text-[#0084d6]" />
                         <span>{selectedDirector.experience}</span>
                       </span>
 
@@ -519,10 +442,10 @@ export default function BoardOfDirectorsSection({
                   </div>
                 </div>
 
-                {/* Executive Bio */}
+                {/* Executive Bio Paragraph */}
                 <div className="space-y-2">
                   <h4 className="text-xs font-black uppercase tracking-widest text-[#004494] flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-amber-500" />
+                    <Sparkles className="w-4 h-4 text-[#0084d6]" />
                     <span>Executive Profile &amp; Biography</span>
                   </h4>
                   <p className="text-sm sm:text-base text-slate-700 leading-relaxed text-justify font-normal">
@@ -530,23 +453,19 @@ export default function BoardOfDirectorsSection({
                   </p>
                 </div>
 
-                {/* Key Strategic Responsibilities */}
-                {selectedDirector.keyResponsibilities && (
+                {/* Key Leadership Portfolios & Governance (Pure Narrative Paragraphs - Zero Bullet Points) */}
+                {selectedDirector.portfolioParagraphs && (
                   <div className="space-y-3 pt-3 border-t border-slate-100">
-                    <h4 className="text-xs font-black uppercase tracking-widest text-slate-800 flex items-center gap-2">
+                    <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 flex items-center gap-2">
                       <Layers className="w-4 h-4 text-[#004494]" />
                       <span>Key Leadership Portfolios &amp; Governance</span>
                     </h4>
 
-                    <div className="grid grid-cols-1 gap-2.5">
-                      {selectedDirector.keyResponsibilities.map((resp, rIdx) => (
-                        <div
-                          key={rIdx}
-                          className="flex items-start gap-3 rounded-lg bg-slate-50/80 p-3 border border-slate-200/70 text-xs sm:text-[13px] text-slate-700"
-                        >
-                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                          <span className="leading-snug">{resp}</span>
-                        </div>
+                    <div className="space-y-3 text-sm sm:text-base text-slate-700 leading-relaxed text-justify font-normal">
+                      {selectedDirector.portfolioParagraphs.map((para, pIdx) => (
+                        <p key={pIdx}>
+                          {para}
+                        </p>
                       ))}
                     </div>
                   </div>
