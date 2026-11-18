@@ -38,6 +38,20 @@ export default function FishtechHatcheryPage() {
         image="/images/concerns/fishtech-hatchery.jpg"
         fallbackImage="/images/client-2.jpg"
         imageAlt="Fishtech Hatchery modern incubation and nursery facility in Bangladesh"
+        images={[
+          {
+            src: "/images/concerns/fishtech-hatchery.jpg",
+            alt: "Fishtech Hatchery modern incubation and nursery facility in Bangladesh",
+          },
+          {
+            src: "/images/about-1.jpg",
+            alt: "Biosecure nursery and broodstock management ponds",
+          },
+          {
+            src: "/images/about-3.jpg",
+            alt: "Field live seed delivery and oxygenated packaging logistics",
+          },
+        ]}
       />
     </>
   );

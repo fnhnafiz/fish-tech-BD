@@ -38,6 +38,20 @@ export default function GrowtechAquaculturePage() {
         image="/images/concerns/growtech-aquaculture.jpg"
         fallbackImage="/images/service-aqua-medicine.jpg"
         imageAlt="Growtech Aquaculture modern biotechnology and probiotic formulation laboratory"
+        images={[
+          {
+            src: "/images/concerns/growtech-aquaculture.jpg",
+            alt: "Growtech Aquaculture modern biotechnology and probiotic formulation laboratory",
+          },
+          {
+            src: "/images/service-aqua-medicine.jpg",
+            alt: "Pond water conditioning and probiotic inputs",
+          },
+          {
+            src: "/images/about-3.jpg",
+            alt: "On-site pond water quality testing and technical consultation",
+          },
+        ]}
       />
     </>
   );

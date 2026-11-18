@@ -38,6 +38,20 @@ export default function GrowtechAgroPage() {
         image="/images/concerns/growtech-agro.jpg"
         fallbackImage="/images/about-3.jpg"
         imageAlt="Growtech Agro modern agricultural biotechnology and crop nutrition research facility"
+        images={[
+          {
+            src: "/images/concerns/growtech-agro.jpg",
+            alt: "Growtech Agro modern agricultural biotechnology and crop nutrition research facility",
+          },
+          {
+            src: "/images/about-1.jpg",
+            alt: "Sustainable agricultural and aquaculture ecosystem demonstration",
+          },
+          {
+            src: "/images/about-3.jpg",
+            alt: "Field agronomic advisory and farmer soil testing clinics",
+          },
+        ]}
       />
     </>
   );

@@ -38,6 +38,20 @@ export default function FishtechGoldaHatcheryPage() {
         image="/images/concerns/fishtech-golda-hatchery.jpg"
         fallbackImage="/images/client-1.jpg"
         imageAlt="Fishtech Golda Hatchery modern freshwater prawn breeding and larval rearing facility"
+        images={[
+          {
+            src: "/images/concerns/fishtech-golda-hatchery.jpg",
+            alt: "Fishtech Golda Hatchery modern freshwater prawn breeding and larval rearing facility",
+          },
+          {
+            src: "/images/about-2.jpg",
+            alt: "Larval health and microscopic screening diagnostics",
+          },
+          {
+            src: "/images/about-1.jpg",
+            alt: "Freshwater prawn acclimatization and commercial grow-out ponds",
+          },
+        ]}
       />
     </>
   );

@@ -38,6 +38,20 @@ export default function FishtechSPFMonodonPage() {
         image="/images/concerns/fishtech-spf-monodon.jpg"
         fallbackImage="/images/about-2.jpg"
         imageAlt="Fishtech SPF Monodon certified biosecure black tiger shrimp breeding facility in Bangladesh"
+        images={[
+          {
+            src: "/images/concerns/fishtech-spf-monodon.jpg",
+            alt: "Fishtech SPF Monodon certified biosecure black tiger shrimp breeding facility in Bangladesh",
+          },
+          {
+            src: "/images/about-2.jpg",
+            alt: "Molecular PCR pathogen diagnostics and quarantine laboratory",
+          },
+          {
+            src: "/images/service-coe.jpg",
+            alt: "Coastal shrimp aquaculture demonstration and biosecurity training",
+          },
+        ]}
       />
     </>
   );

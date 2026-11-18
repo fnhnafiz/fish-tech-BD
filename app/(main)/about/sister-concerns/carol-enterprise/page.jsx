@@ -38,6 +38,20 @@ export default function CarolEnterprisePage() {
         image="/images/concerns/carol-enterprise.jpg"
         fallbackImage="/images/about-1.jpg"
         imageAlt="Carol Enterprise modern agro-industrial supply chain and distribution center"
+        images={[
+          {
+            src: "/images/concerns/carol-enterprise.jpg",
+            alt: "Carol Enterprise modern agro-industrial supply chain and distribution center",
+          },
+          {
+            src: "/images/client-2.jpg",
+            alt: "Commercial supply chain warehousing and bulk procurement",
+          },
+          {
+            src: "/images/about-3.jpg",
+            alt: "Nationwide fleet delivery and farm-gate supply logistics",
+          },
+        ]}
       />
     </>
   );

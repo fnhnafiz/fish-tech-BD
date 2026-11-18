@@ -2,13 +2,12 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { ShieldCheck } from "lucide-react";
 
 /**
  * SisterConcernDetailSection Component
  * 2-Column Split:
- *  - Left Column: Pure editorial content (Eyebrow, Heading, Lead statement, Paragraphs). Zero cards or buttons.
- *  - Right Column: High-definition related facility image with subtle biosecurity badge.
+ *  - Left Column: Pure editorial content (Eyebrow, Heading, Lead statement, Paragraphs).
+ *  - Right Column: High-impact 3 or 4 image dynamic showcase (pure photography, zero text clutter, zero modals).
  */
 export default function SisterConcernDetailSection({
   eyebrow = "FLAGSHIP SISTER CONCERN • FISHTECH GROUP",
@@ -22,8 +21,13 @@ export default function SisterConcernDetailSection({
   image = "/images/concerns/fishtech-hatchery.jpg",
   fallbackImage = "/images/client-2.jpg",
   imageAlt = "Fishtech Hatchery modern incubation and nursery facility in Bangladesh",
+  images = null,
 }) {
   const [imgSrc, setImgSrc] = useState(image);
+
+  // If images array is provided, use it; otherwise fallback to single image
+  const hasMultipleImages = Array.isArray(images) && images.length >= 3;
+  const isFourImages = hasMultipleImages && images.length >= 4;
 
   return (
     <section
@@ -45,11 +49,11 @@ export default function SisterConcernDetailSection({
       />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-14 xl:gap-16">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-12 xl:gap-16">
           {/* ======================================================== */}
           {/* LEFT COLUMN: Pure Editorial Heading and Paragraphs        */}
           {/* ======================================================== */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-6 xl:col-span-7 space-y-6">
             {/* Header Block */}
             <div className="space-y-3">
               <div className="inline-flex items-center gap-2 rounded-full border border-sky-200/90 bg-sky-50 px-3.5 py-1 text-xs font-bold uppercase tracking-[0.14em] text-[#004494] shadow-2xs">
@@ -87,19 +91,95 @@ export default function SisterConcernDetailSection({
           </div>
 
           {/* ======================================================== */}
-          {/* RIGHT COLUMN: Related Facility & Production Image        */}
+          {/* RIGHT COLUMN: 3 or 4 Image Showcase / Single Image       */}
           {/* ======================================================== */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Outer Ambient Glow Ring */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -inset-3 rounded-[36px] bg-gradient-to-tr from-[#004494]/20 via-[#0084d6]/15 to-emerald-400/20 blur-xl opacity-75"
-              />
+          <div className="lg:col-span-6 xl:col-span-5 relative">
+            {/* Ambient Background Glow */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-3 rounded-3xl bg-gradient-to-tr from-[#004494]/15 via-sky-300/15 to-emerald-300/15 blur-2xl opacity-75"
+            />
 
-              {/* Main Image Frame */}
+            {hasMultipleImages ? (
+              /* Multi-Image Layout (3 or 4 images) */
+              isFourImages ? (
+                /* 4-Image 2x2 Grid */
+                <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                  {images.slice(0, 4).map((item, idx) => {
+                    const src = typeof item === "string" ? item : item.src;
+                    const alt = typeof item === "string" ? `${title} photo ${idx + 1}` : (item.alt || title);
+                    return (
+                      <div
+                        key={idx}
+                        className="group relative w-full aspect-[4/3] sm:aspect-square overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-100 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-[#004494]/40"
+                      >
+                        <Image
+                          src={src}
+                          alt={alt}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+                        />
+                        <div
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl"
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                /* 3-Image Asymmetric Layout (1 Top Wide + 2 Bottom Split) */
+                <div className="relative space-y-3.5 sm:space-y-4">
+                  {/* Top Master Image */}
+                  {images[0] && (
+                    <div className="group relative w-full aspect-[16/10] overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-slate-100 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-[#004494]/40">
+                      <Image
+                        src={typeof images[0] === "string" ? images[0] : images[0].src}
+                        alt={typeof images[0] === "string" ? `${title} facility` : (images[0].alt || title)}
+                        fill
+                        priority
+                        sizes="(max-width: 1024px) 100vw, 45vw"
+                        className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+                      />
+                      <div
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl sm:rounded-3xl"
+                      />
+                    </div>
+                  )}
+
+                  {/* Bottom Row: 2 Complementary Images Side by Side */}
+                  <div className="grid grid-cols-2 gap-3.5 sm:gap-4">
+                    {images.slice(1, 3).map((item, idx) => {
+                      const src = typeof item === "string" ? item : item.src;
+                      const alt = typeof item === "string" ? `${title} photo ${idx + 2}` : (item.alt || title);
+                      return (
+                        <div
+                          key={idx}
+                          className="group relative w-full aspect-[4/3] overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-100 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#004494]/40"
+                        >
+                          <Image
+                            src={src}
+                            alt={alt}
+                            fill
+                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 22vw"
+                            className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+                          />
+                          <div
+                            aria-hidden="true"
+                            className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl"
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )
+            ) : (
+              /* Fallback Single Image Layout */
               <div className="relative overflow-hidden rounded-[28px] sm:rounded-[32px] border border-slate-200/90 bg-white p-2.5 shadow-2xl shadow-sky-950/10">
-                <div className="relative aspect-[4/5] sm:aspect-[4/5] lg:aspect-[4/5] w-full overflow-hidden rounded-[22px] sm:rounded-[26px] bg-slate-100">
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[22px] sm:rounded-[26px] bg-slate-100">
                   <Image
                     src={imgSrc}
                     alt={imageAlt}
@@ -109,19 +189,13 @@ export default function SisterConcernDetailSection({
                     className="object-cover object-center transition-transform duration-500 hover:scale-105"
                     onError={() => setImgSrc(fallbackImage)}
                   />
-
-                  {/* Gradient Depth Overlay */}
                   <div
                     aria-hidden="true"
                     className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-black/10"
                   />
-
-                
-
-               
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

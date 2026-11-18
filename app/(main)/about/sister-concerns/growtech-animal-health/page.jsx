@@ -38,6 +38,20 @@ export default function GrowtechAnimalHealthPage() {
         image="/images/concerns/growtech-animal-health.jpg"
         fallbackImage="/images/service-aqua-medicine.jpg"
         imageAlt="Growtech Animal Health modern veterinary pharmaceuticals and manufacturing facility"
+        images={[
+          {
+            src: "/images/concerns/growtech-animal-health.jpg",
+            alt: "Growtech Animal Health modern veterinary pharmaceuticals and manufacturing facility",
+          },
+          {
+            src: "/images/about-2.jpg",
+            alt: "Veterinary diagnostic research and quality formulation testing",
+          },
+          {
+            src: "/images/service-aqua-medicine.jpg",
+            alt: "Commercial livestock and aquaculture healthcare solutions",
+          },
+        ]}
       />
     </>
   );
