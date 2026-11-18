@@ -113,7 +113,7 @@ export default function ClientsSection({
         {/* Row 1: Leftward Scrolling (Right to Left) */}
         <Marquee
           direction="left"
-          speed={36}
+          speed={60}
           pauseOnHover={true}
           repeat={4}
           className="[--gap:1rem] sm:[--gap:1.5rem]"
@@ -130,7 +130,7 @@ export default function ClientsSection({
         {/* Row 2: Rightward Scrolling (Left to Right) */}
         <Marquee
           direction="right"
-          speed={40}
+          speed={70}
           pauseOnHover={true}
           repeat={4}
           className="[--gap:1rem] sm:[--gap:1.5rem] mt-3 sm:mt-5"
