@@ -25,7 +25,7 @@ function ClientLogoCard({ item, onClick }) {
           alt={item.name}
           width={180}
           height={110}
-          className="max-h-14 sm:max-h-16 md:max-h-18 w-auto max-w-[85%] object-contain transition-all duration-300 group-hover/card:scale-105"
+          className="max-h-14 sm:max-h-16 md:max-h-18 w-auto max-w-[85%] object-contain grayscale opacity-75 transition-all duration-300 group-hover/card:grayscale-0 group-hover/card:opacity-100 group-hover/card:scale-105"
         />
       </div>
 

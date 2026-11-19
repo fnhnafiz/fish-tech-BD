@@ -237,7 +237,7 @@ export default function ProductsCatalogSection() {
                         onClick={() => setSelectedCategory(cat.id)}
                         className={`group relative flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-xs font-medium transition-all ${
                           isSelected
-                            ? "bg-emerald-50/80 text-emerald-900 font-bold shadow-2xs border-l-4 border-emerald-600"
+                            ? "bg-[#004494]/10 text-[#004494] font-bold shadow-2xs border-l-4 border-[#004494]"
                             : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
                         }`}
                       >
@@ -246,7 +246,7 @@ export default function ProductsCatalogSection() {
                           <span
                             className={`flex h-5 min-w-[22px] items-center justify-center rounded-full px-1.5 text-[11px] font-bold ${
                               isSelected
-                                ? "bg-emerald-600 text-white"
+                                ? "bg-[#004494] text-white"
                                 : "bg-slate-100 text-slate-500 group-hover:bg-slate-200"
                             }`}
                           >
@@ -282,7 +282,7 @@ export default function ProductsCatalogSection() {
             {/* Category Header Row (Matches reference: "Aquaculture" on left, "51 products" on right) */}
             <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-200/90">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-black text-emerald-700 tracking-tight flex items-center gap-2">
+                <h2 className="text-2xl sm:text-3xl font-black text-[#004494] tracking-tight flex items-center gap-2">
                   <span>{activeCategoryObj.name}</span>
                   {searchQuery && (
                     <span className="text-sm font-normal text-slate-400">
@@ -342,7 +342,7 @@ export default function ProductsCatalogSection() {
                 {filteredProducts.map((product) => (
                   <Link
                     key={product.id}
-                    href={`/services/aqua-medicine/products/${product.id}`}
+                    href={`/services/products/aqua-medicine/${product.id}`}
                     className="group relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-3 sm:p-4 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#0084d6] hover:shadow-xl hover:shadow-sky-950/10 cursor-pointer"
                   >
                     <div>
@@ -401,7 +401,7 @@ export default function ProductsCatalogSection() {
 
                     {/* Category Pill Tag & View Details Link */}
                     <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
-                      <span className="inline-block rounded-md bg-emerald-50 px-2 sm:px-2.5 py-0.5 text-[10px] sm:text-[11px] font-bold text-emerald-700">
+                      <span className="inline-block rounded-md bg-[#004494]/10 px-2 sm:px-2.5 py-0.5 text-[10px] sm:text-[11px] font-bold text-[#004494]">
                         {product.categoryLabel}
                       </span>
 
@@ -495,7 +495,7 @@ export default function ProductsCatalogSection() {
                         }}
                         className={`flex w-full items-center justify-between rounded-xl px-3.5 py-3 text-xs font-medium transition-all ${
                           isSelected
-                            ? "bg-emerald-50 text-emerald-900 font-bold border-l-4 border-emerald-600"
+                            ? "bg-[#004494]/10 text-[#004494] font-bold border-l-4 border-[#004494]"
                             : "text-slate-700 hover:bg-slate-50"
                         }`}
                       >
@@ -503,7 +503,7 @@ export default function ProductsCatalogSection() {
                         <span
                           className={`flex h-5 items-center justify-center rounded-full px-2 text-[10px] font-bold ${
                             isSelected
-                              ? "bg-emerald-600 text-white"
+                              ? "bg-[#004494] text-white"
                               : "bg-slate-100 text-slate-500"
                           }`}
                         >
@@ -554,7 +554,7 @@ export default function ProductsCatalogSection() {
           >
             {/* Modal Header */}
             <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-              <span className="inline-block rounded-md bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-800">
+              <span className="inline-block rounded-md bg-[#004494]/10 px-2.5 py-1 text-xs font-bold text-[#004494]">
                 {quickViewProduct.categoryLabel}
               </span>
               <button
@@ -637,7 +637,7 @@ export default function ProductsCatalogSection() {
             {/* Modal Actions */}
             <div className="mt-6 flex flex-wrap gap-2.5">
               <Link
-                href={`/services/aqua-medicine/products/${quickViewProduct.id}`}
+                href={`/services/products/aqua-medicine/${quickViewProduct.id}`}
                 className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#004494] to-[#0084d6] px-4 py-2.5 text-xs font-bold text-white shadow-md hover:from-[#003370] hover:to-[#0070b8]"
               >
                 <span>View Full Product Details &rarr;</span>

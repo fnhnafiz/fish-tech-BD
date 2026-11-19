@@ -82,12 +82,12 @@ export default function ProductDetailView({ product, relatedProducts = [] }) {
               Home
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
-            <Link href="/services/aqua-medicine" className="hover:text-[#004494] transition-colors">
-              Services
+            <Link href="/services/products" className="hover:text-[#004494] transition-colors">
+              Products
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
             <Link
-              href="/services/aqua-medicine/products"
+              href="/services/products/aqua-medicine"
               className="hover:text-[#004494] transition-colors"
             >
               Aqua Medicine
@@ -99,7 +99,7 @@ export default function ProductDetailView({ product, relatedProducts = [] }) {
           </nav>
 
           <Link
-            href="/services/aqua-medicine/products"
+            href="/services/products/aqua-medicine"
             className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-700 hover:text-[#004494] bg-white px-3 py-1.5 rounded-xl border border-slate-200 shadow-2xs hover:shadow-xs transition-all"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
@@ -207,14 +207,14 @@ export default function ProductDetailView({ product, relatedProducts = [] }) {
                 )}
               </div>
 
-              {/* 3. Intro Callout Box (Light Green with Left Green Accent Bar) */}
-              <div className="rounded-xl bg-[#F0FDF4] border-l-4 border-emerald-600 p-4 sm:p-5 text-xs sm:text-sm text-slate-700 leading-relaxed shadow-2xs">
+              {/* 3. Intro Callout Box */}
+              <div className="rounded-xl bg-[#004494]/5 border-l-4 border-[#004494] p-4 sm:p-5 text-xs sm:text-sm text-slate-700 leading-relaxed shadow-2xs">
                 {product.introBox || product.indication}
               </div>
 
               {/* 4. Section Heading: Specifications */}
               <div className="pt-2 flex items-center gap-2">
-                <span className="w-1.5 h-4.5 bg-emerald-600 rounded-full inline-block" />
+                <span className="w-1.5 h-4.5 bg-[#004494] rounded-full inline-block" />
                 <h2 className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">
                   Specifications
                 </h2>
@@ -354,7 +354,7 @@ export default function ProductDetailView({ product, relatedProducts = [] }) {
               </div>
 
               <Link
-                href="/services/aqua-medicine/products"
+                href="/services/products/aqua-medicine"
                 className="text-xs font-bold text-sky-700 hover:text-[#004494] transition-colors"
               >
                 View Catalog &rarr;
@@ -365,7 +365,7 @@ export default function ProductDetailView({ product, relatedProducts = [] }) {
               {relatedProducts.map((rel) => (
                 <Link
                   key={rel.id}
-                  href={`/services/aqua-medicine/products/${rel.id}`}
+                  href={`/services/products/aqua-medicine/${rel.id}`}
                   className="group relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-3 sm:p-4 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#0084d6] hover:shadow-xl hover:shadow-sky-950/10 cursor-pointer"
                 >
                   <div>
@@ -395,7 +395,7 @@ export default function ProductDetailView({ product, relatedProducts = [] }) {
                   </div>
 
                   <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-[10px] sm:text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
+                    <span className="text-[10px] sm:text-[11px] font-bold text-[#004494] bg-[#004494]/10 px-2 py-0.5 rounded-md">
                       {rel.categoryLabel}
                     </span>
                     <span className="text-[11px] font-bold text-sky-600 group-hover:translate-x-0.5 transition-transform">

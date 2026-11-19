@@ -18,6 +18,7 @@ export default function AquaMedicinePage() {
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Services", href: "/services" },
+          { label: "Products", href: "/services/products" },
           { label: "Aqua Medicine" },
         ]}
         badge="BIOMEDICAL FORMULATIONS • QUALITY ASSURED"

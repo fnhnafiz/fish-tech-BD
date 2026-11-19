@@ -64,7 +64,7 @@ export default function ClientsPage() {
                       alt={partner.name}
                       width={160}
                       height={90}
-                      className="max-h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                      className="max-h-16 w-auto object-contain grayscale opacity-75 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
                     />
                   </div>
 

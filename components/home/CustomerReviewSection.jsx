@@ -316,7 +316,7 @@ export function CustomerReviewsCarousel({
                     width: peekW,
                     height: peekH,
                     opacity: 1,
-                    zIndex: 100,
+                    zIndex: 20,
                     pointerEvents: "auto",
                   };
                 }
@@ -328,7 +328,7 @@ export function CustomerReviewsCarousel({
                     width: peekW,
                     height: peekH,
                     opacity: 1,
-                    zIndex: 100,
+                    zIndex: 20,
                     pointerEvents: "auto",
                   };
                 }
@@ -370,7 +370,7 @@ export function CustomerReviewsCarousel({
                     width: sideW,
                     height: sideH,
                     opacity: 1,
-                    zIndex: 100,
+                    zIndex: 20,
                     pointerEvents: "auto",
                   };
                 }
@@ -382,7 +382,7 @@ export function CustomerReviewsCarousel({
                     width: sideW,
                     height: sideH,
                     opacity: 1,
-                    zIndex: 100,
+                    zIndex: 20,
                     pointerEvents: "auto",
                   };
                 }
@@ -416,7 +416,7 @@ export function CustomerReviewsCarousel({
                     width: 105,
                     height: 330,
                     opacity: 1,
-                    zIndex: 100,
+                    zIndex: 20,
                     pointerEvents: "auto",
                   };
                 case 1:
@@ -426,7 +426,7 @@ export function CustomerReviewsCarousel({
                     width: 105,
                     height: 330,
                     opacity: 1,
-                    zIndex: 100,
+                    zIndex: 20,
                     pointerEvents: "auto",
                   };
                 case -2:
@@ -436,7 +436,7 @@ export function CustomerReviewsCarousel({
                     width: 74,
                     height: 200,
                     opacity: 1,
-                    zIndex: 100,
+                    zIndex: 20,
                     pointerEvents: "auto",
                   };
                 case 2:
@@ -446,7 +446,7 @@ export function CustomerReviewsCarousel({
                     width: 74,
                     height: 200,
                     opacity: 1,
-                    zIndex: 100,
+                    zIndex: 20,
                     pointerEvents: "auto",
                   };
                 case -3:
@@ -511,7 +511,7 @@ export function CustomerReviewsCarousel({
                 {offset === -1 && (
                   <div
                     aria-hidden="true"
-                    className="absolute top-0 bottom-0 flex items-center text-white pointer-events-none z-[100]"
+                    className="absolute top-0 bottom-0 flex items-center text-white pointer-events-none z-20"
                     style={{
                       width: 22,
                       height: 42,
@@ -532,7 +532,7 @@ export function CustomerReviewsCarousel({
                 {offset === 1 && (
                   <div
                     aria-hidden="true"
-                    className="absolute top-0 bottom-0 flex items-center text-white pointer-events-none z-[100]"
+                    className="absolute top-0 bottom-0 flex items-center text-white pointer-events-none z-20"
                     style={{
                       width: 22,
                       height: 42,
@@ -553,7 +553,7 @@ export function CustomerReviewsCarousel({
                 {offset === -2 && tier === "desktop" && (
                   <div
                     aria-hidden="true"
-                    className="absolute top-0 bottom-0 flex items-center text-white pointer-events-none z-[100]"
+                    className="absolute top-0 bottom-0 flex items-center text-white pointer-events-none z-20"
                     style={{
                       width: 18,
                       height: 28,
@@ -574,7 +574,7 @@ export function CustomerReviewsCarousel({
                 {offset === 2 && tier === "desktop" && (
                   <div
                     aria-hidden="true"
-                    className="absolute top-0 bottom-0 flex items-center text-white pointer-events-none z-[100]"
+                    className="absolute top-0 bottom-0 flex items-center text-white pointer-events-none z-20"
                     style={{
                       width: 18,
                       height: 28,
@@ -831,7 +831,7 @@ export default function CustomerReviewSection({
   return (
     <section
       aria-labelledby="customer-reviews-heading"
-      className="relative py-12 sm:py-16 lg:py-20 overflow-x-clip "
+      className="isolate relative z-10 py-12 sm:py-16 lg:py-20 overflow-x-clip"
     >
       {/* Subtle architectural background glows */}
       <div

@@ -120,12 +120,12 @@ const NAV_ITEMS = [
     href: "/services",
     dropdown: [
       {
-        title: "Aqua Medicine",
-        href: "/services/aqua-medicine",
+        title: "Products",
+        href: "/services/products",
         subItems: [
           {
-            title: "Products",
-            href: "/services/aqua-medicine/products",
+            title: "Aqua Medicine",
+            href: "/services/products/aqua-medicine",
           },
         ],
       },
@@ -334,8 +334,11 @@ export default function Navbar() {
   const isLightPage = Boolean(
     pathname &&
       (pathname.startsWith("/services/aqua-medicine/products/") ||
+        pathname.startsWith("/services/products/aqua-medicine/") ||
         pathname.startsWith("/products/")) &&
-      pathname !== "/services/aqua-medicine/products"
+      pathname !== "/services/aqua-medicine/products" &&
+      pathname !== "/services/products/aqua-medicine" &&
+      pathname !== "/services/products"
   );
 
   const isSolidHeader = isScrolled || isLightPage;
@@ -344,7 +347,7 @@ export default function Navbar() {
     <>
       <header
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-40 w-full select-none transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full select-none transition-all duration-300 ${
         isSolidHeader
           ? "bg-white/95 backdrop-blur-md shadow-md border-b border-slate-100"
           : "bg-transparent border-b border-white/10"
