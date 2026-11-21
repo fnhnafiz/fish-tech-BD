@@ -127,6 +127,10 @@ const NAV_ITEMS = [
             title: "Aqua Medicine",
             href: "/services/products/aqua-medicine",
           },
+          {
+            title: "Aquarium Feed",
+            href: "/services/products/aquarium-feed",
+          },
         ],
       },
       {
